@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>台海安全關鍵思維：選邊、戰略與第一島鏈</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-dark: #050816;
+      --bg-section: #0b1020;
+      --accent-red: #ff4b5c;
+      --accent-blue: #1e90ff;
+      --accent-green: #3bd16f;
+      --text-main: #f5f7ff;
+      --text-sub: #a4acc4;
+      --pill: #151a2b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111933 0, #050816 45%, #020308 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    h1, h2, h3 { font-weight: 700; }
+
+    /* Hero 區塊 */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0,3fr) minmax(0,2.4fr);
+      gap: 32px;
+      align-items: center;
+      padding: 32px 24px 40px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #0c1224 0%, #050816 45%, #19152a 100%);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(10, 180, 255, 0.14);
+      color: var(--accent-blue);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: 32px;
+      line-height: 1.25;
+      margin: 14px 0 10px;
+    }
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-sub);
+      max-width: 480px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .tag-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: var(--pill);
+      color: var(--text-sub);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .hero-map {
+      position: relative;
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: radial-gradient(circle at top, #20284a 0, #050816 65%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-map-title {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 6px;
+    }
+    .hero-map-main {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .hero-map-caption {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+    .chain-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .chain-badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      border: 1px dashed rgba(255, 255, 255, 0.24);
+      color: var(--text-sub);
+    }
+
+    /* 區塊通用樣式 */
+    .section {
+      margin-top: 40px;
+      padding: 24px 22px 26px;
+      border-radius: 20px;
+      background: var(--bg-section);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      gap: 12px;
+    }
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-marker {
+      width: 26px;
+      height: 26px;
+      border-radius: 9px;
+      background: rgba(255, 75, 92, 0.14);
+      border: 1px solid rgba(255, 75, 92, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--accent-red);
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 18px;
+    }
+    .section-note {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    .section-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 20px;
+      margin-top: 6px;
+    }
+
+    .card {
+      padding: 14px 14px 16px;
+      border-radius: 14px;
+      background: rgba(8, 12, 30, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .card-title {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .card-body {
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+    ul.bullets {
+      list-style: none;
+      margin-top: 4px;
+    }
+    ul.bullets li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-top: 3px;
+    }
+    ul.bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent-blue);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-sub);
+    }
+
+    /* 重點警語 */
+    .alert-banner {
+      margin-top: 40px;
+      padding: 18px 18px;
+      border-radius: 18px;
+      background: radial-gradient(circle at left, rgba(255, 75, 92, 0.25) 0, #1b050a 40%, #050308 100%);
+      border: 1px solid rgba(255, 75, 92, 0.6);
+    }
+    .alert-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 210, 210, 0.8);
+      margin-bottom: 6px;
+    }
+    .alert-main {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffe3e7;
+      margin-bottom: 6px;
+    }
+    .alert-sub {
+      font-size: 13px;
+      color: rgba(255, 215, 215, 0.86);
+    }
+
+    /* 問題卡區塊 */
+    .questions {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+    .question-card {
+      padding: 12px 12px 14px;
+      border-radius: 14px;
+      background: #050816;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .question-label {
+      font-size: 11px;
+      color: var(--accent-blue);
+      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .question-text {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    /* RWD */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .section-grid-2 {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .questions {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- Hero：標題＋第一島鏈視覺說明 -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Taiwan Strait · Security</div>
+        <h1 class="hero-title">台海安全關鍵思維：選邊、戰略與第一島鏈</h1>
+        <p class="hero-subtitle">
+          當中國加速對外擴張、周邊軍演日益頻繁，台灣的每一次投票，都不只是選政黨，而是在替第一島鏈留下破口，或補上一道防線。
+        </p>
+        <div class="hero-tags">
+          <span class="tag-pill">台海局勢</span>
+          <span class="tag-pill">第一島鏈</span>
+          <span class="tag-pill">中美角力</span>
+          <span class="tag-pill">民主防衛</span>
+        </div>
+      </div>
+      <aside class="hero-map">
+        <div class="hero-map-title">Regional Posture</div>
+        <div class="hero-map-main">從南韓到菲律賓的安全弧線</div>
+        <p class="hero-map-caption">
+          北有南韓、日本與西南諸島，南接巴士海峽與菲律賓，美軍與盟國在第一島鏈布建軍力，形成圍堵中國東出太平洋的關鍵防線，台灣正位於中心節點。
+        </p>
+        <div class="chain-badges">
+          <span class="chain-badge">南韓 · 戰術核演訓</span>
+          <span class="chain-badge">日本 · 火砲與防空展示</span>
+          <span class="chain-badge">與那國島 · 中程防空飛彈</span>
+          <span class="chain-badge">菲律賓 · 中程飛彈與反潛演訓</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 區塊一：政治路線與價值 -->
+    <section class="section">
+      <header class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-marker">01</div>
+          <h2 class="section-title">政治說到底，是路線＋價值</h2>
+        </div>
+        <p class="section-note">台灣的國家路線，決定自己站在誰的安全架構裡。</p>
+      </header>
+
+      <div class="section-grid-2">
+        <div class="card">
+          <h3 class="card-title">舊口號失效：維持現狀與一中各表</h3>
+          <div class="card-body">
+            隨著中國對外軍事與經濟擴張加劇，「維持現狀」的模糊空間愈來愈小，台灣被迫面對更明確的選邊壓力。
+            <ul class="bullets">
+              <li>北京以「一個中國」框住所有名稱與想像。</li>
+              <li>不論叫「中華民國」、「台灣」或「中華民國台灣」，對方目標都指向「納入版圖」。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">光譜分裂：親美、親中與自我定位</h3>
+          <div class="card-body">
+            國內從「更親美、強化防衛」到「更親中、接受政治安排」的分歧，讓台灣在國際眼中常呈現出路線搖擺、訊號矛盾的樣態。
+            <ul class="bullets">
+              <li>一邊質疑甚至反對軍售與安全合作。</li>
+              <li>另一邊主張靠近中國、簽署政治協議以換取表面和平。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="pill-row">
+        <span class="pill">中華民國台灣：想像共同體，非法律解答</span>
+        <span class="pill">名稱可以妥協，但主權與安全無法模糊</span>
+      </div>
+    </section>
+
+    <!-- 區塊二：周邊軍事態勢與第一島鏈 -->
+    <section class="section">
+      <header class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-marker">02</div>
+          <h2 class="section-title">誰在台灣周邊部署武力？</h2>
+        </div>
+        <p class="section-note">看懂地圖，就看懂自己身處哪一個安全架構。</p>
+      </header>
+
+      <div class="section-grid-2">
+        <div class="card">
+          <h3 class="card-title">軍演與部署：不是「放好看」</h3>
+          <div class="card-body">
+            從韓美戰術核演訓、日本新型火砲展示，到與那國島中程防空飛彈、菲美聯合反潛演訓，這些行動指向相同的焦點：嚇阻中國改變現狀。
+            <ul class="bullets">
+              <li>這些兵力與武器的共同問題是：「在防誰？」</li>
+              <li>答案並不是彼此，而是遏止中國以武力改寫區域秩序。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">第一島鏈的唯一破口：台灣選票</h3>
+          <div class="card-body">
+            北起南韓、日本、西南諸島與沖繩，南接巴士海峽與菲律賓，各國與美軍形成連續防線；真正可能打開缺口的，是台灣內部選擇向中國靠攏的那一票。
+            <ul class="bullets">
+              <li>周邊國家沒有一個在談「投降」，只有台灣社會內部在爭論是否要放棄抵抗。</li>
+              <li>投給親共投降路線，等於主動在第一島鏈挖出一個洞。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 區塊三：烏俄戰爭啟示 -->
+    <section class="section">
+      <header class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-marker">03</div>
+          <h2 class="section-title">從烏克蘭，看「讓步」與抵抗</h2>
+        </div>
+        <p class="section-note">戰爭輸贏，不只取決於國土大小，而在於「願不願意投降」。</p>
+      </header>
+
+      <div class="section-grid-2">
+        <div class="card">
+          <h3 class="card-title">「讓出一塊土地就沒事」的幻想</h3>
+          <div class="card-body">
+            烏克蘭曾透過公投讓出克里米亞，最後卻換來更大規模的侵略，證明退一步不一定海闊天空，反而會被視為軟弱與邀請下一次進攻。
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">台灣的唯一輸法：自己投降</h3>
+          <div class="card-body">
+            在第一島鏈的戰略結構下，只要台灣不投降，就會持續是區域聯盟的一部分；真正會讓台灣徹底失去安全保障的，是用投票選擇放棄自我防衛。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 區塊四：投降與第三次世界大戰 -->
+    <section class="section">
+      <header class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-marker">04</div>
+          <h2 class="section-title">「投降就和平」？其實是戰火升級的開端</h2>
+        </div>
+        <p class="section-note">在兵推裡，台灣投降從不是終點，而是下一階段戰爭的起點。</p>
+      </header>
+
+      <div class="section-grid-2">
+        <div class="card">
+          <h3 class="card-title">兵推中的畫面：代表被請出場之後</h3>
+          <div class="card-body">
+            當台灣宣布投降，兵推會議不會解散，而是進入第二幕：其他國家接著討論如何對付已納入中國控制、卻緊貼第一島鏈的「台灣」。
+            <ul class="bullets">
+              <li>第一島鏈出現破口，迫使盟軍調整部署。</li>
+              <li>原本保護台灣的武器，很可能轉為對準被併吞後的台灣地理位置。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">從地區衝突，走向世界大戰</h3>
+          <div class="card-body">
+            台灣一旦以投降方式「解決問題」，等於讓中國軍力直接跨過台灣海峽，貼近日本、菲律賓與太平洋深水區，整個第一島鏈被迫進入全面對抗。
+            <ul class="bullets">
+              <li>台灣投降那一天，可能就是全球安全體系被迫重新洗牌的一天。</li>
+              <li>對台灣人而言，那不是和平，而是戰火離家門口更近。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 重點警語 Banner -->
+    <section class="alert-banner">
+      <div class="alert-label">Key Message</div>
+      <div class="alert-main">台灣唯一會輸的情況，就是自己選擇投降。</div>
+      <p class="alert-sub">
+        不投降，台灣是被納入民主同盟與第一島鏈安全網的一環；一旦投降，台灣不只失去自我，更可能把整個區域推向第三次世界大戰。
+      </p>
+    </section>
+
+    <!-- 區塊五：給選民的關鍵提問 -->
+    <section class="section">
+      <header class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-marker">05</div>
+          <h2 class="section-title">在中美之間，台灣要怎麼選？</h2>
+        </div>
+        <p class="section-note">把每一張選票，當成一次對台海安全的戰略決策。</p>
+      </header>
+
+      <div class="questions">
+        <article class="question-card">
+          <div class="question-label">Question 01</div>
+          <p class="question-text">
+            在現實世界裡，「中國好打，還是美國好打」？台灣敢得罪哪一邊，又承受得起哪一邊的報復？
+          </p>
+        </article>
+        <article class="question-card">
+          <div class="question-label">Question 02</div>
+          <p class="question-text">
+            當中國對一個只是戴眼鏡、拿馬克杯、平凡存在的台灣人都感到不爽時，沉默與自我審查真的能換來安全嗎？
+          </p>
+        </article>
+        <article class="question-card">
+          <div class="question-label">Question 03</div>
+          <p class="question-text">
+            與中國談「和平協議」或「九二共識」以外，是否看見任何具體、可驗證的利益，是落在所有台灣人民身上，而非少數特定人脈？
+          </p>
+        </article>
+        <article class="question-card">
+          <div class="question-label">Question 04</div>
+          <p class="question-text">
+            在美、日、韓、菲與中國都高度介入的台海戰場，台灣真的有可能像二戰的瑞士一樣，輕易成為中立國嗎？
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
